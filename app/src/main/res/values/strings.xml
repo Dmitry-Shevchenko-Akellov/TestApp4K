@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">TestApp4K</string>
+    <string name="search">Search</string>
+    <string name="prev">prev</string>
+    <string name="next">next</string>
+    <string name="avatarrep">avatarRep</string>
+    <string name="fork">fork</string>
+</resources>

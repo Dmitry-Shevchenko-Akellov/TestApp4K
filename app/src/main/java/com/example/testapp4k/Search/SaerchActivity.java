@@ -11,6 +11,7 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.testapp4k.Base.BaseActivity;
@@ -26,6 +27,7 @@ public class SaerchActivity extends BaseActivity implements SearchViewInt, View.
     private ImageView searchButton, backgroundTransparent;
     private ImageButton nextButton, prevButton;
     private EditText searchQuery;
+    private TextView waiting;
     private GridView searchResult;
     private int page=0, pages=0;
     private String saveQuery;
@@ -50,6 +52,7 @@ public class SaerchActivity extends BaseActivity implements SearchViewInt, View.
         nextButton.setOnClickListener(this);
         prevButton.setOnClickListener(this);
 
+        waiting = findViewById(R.id.waiting);
         backgroundTransparent = findViewById(R.id.transparent_background);
         progressBar = findViewById(R.id.progressBar);
         progressBar.setVisibility(View.GONE);
@@ -169,10 +172,14 @@ public class SaerchActivity extends BaseActivity implements SearchViewInt, View.
 
     @Override
     public void setProgressVisibility(boolean visibility) {
-        if (visibility)
+        if (visibility){
+            waiting.setVisibility(View.VISIBLE);
             progressBar.setVisibility(View.VISIBLE);
-        else
+        }
+        else{
+            waiting.setVisibility(View.VISIBLE);
             progressBar.setVisibility(View.GONE);
+        }
     }
 
     @Override

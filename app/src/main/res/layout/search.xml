@@ -42,15 +42,16 @@
             android:id="@+id/search_query"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginEnd="15dp"
+            android:layout_marginEnd="5dp"
             android:layout_toStartOf="@+id/search_button"
+            android:autofillHints=""
             android:background="@null"
             android:hint="@string/search"
             android:imeOptions="actionSearch"
             android:inputType="textNoSuggestions"
             android:padding="10dp"
             android:textColor="#000"
-            android:autofillHints="" tools:targetApi="o" />
+            tools:targetApi="o" />
 
         <ImageView
             android:id="@+id/search_button"
@@ -98,15 +99,6 @@
             android:src="@drawable/ic_chevron_right_black_24dp" />
     </RelativeLayout>
 
-    <ProgressBar
-        android:id="@+id/progressBar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <ImageView
         android:id="@+id/transparent_background"
         android:layout_width="0dp"
@@ -116,5 +108,29 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:background="#80000000" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/waiting"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:fontFamily="@font/raleway_extralight"
+        android:text="Please wait..."
+        android:textColor="#ffffff"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/progressBar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </android.support.constraint.ConstraintLayout>

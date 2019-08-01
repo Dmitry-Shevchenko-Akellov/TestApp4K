@@ -177,7 +177,7 @@ public class SaerchActivity extends BaseActivity implements SearchViewInt, View.
             progressBar.setVisibility(View.VISIBLE);
         }
         else{
-            waiting.setVisibility(View.VISIBLE);
+            waiting.setVisibility(View.GONE);
             progressBar.setVisibility(View.GONE);
         }
     }

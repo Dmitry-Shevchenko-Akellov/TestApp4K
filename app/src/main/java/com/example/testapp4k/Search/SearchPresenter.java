@@ -62,7 +62,9 @@ public class SearchPresenter implements SearchPresenterInt {
                         JSONObject jObj = new JSONObject(response);
                         if (!jObj.getBoolean("incomplete_results")) {
                             double reposCount = jObj.getInt("total_count");
-                            Log.d("DEBUG = ", "start");
+                            if (reposCount==0) {
+                                searchViewInt.setNoResult();
+                            }
                             pages = (int)Math.ceil(reposCount / 30);
                             repos_Name = new ArrayList<>();
                             repos_Descr = new ArrayList<>();

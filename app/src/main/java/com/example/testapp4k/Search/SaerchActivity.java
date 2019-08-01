@@ -27,7 +27,7 @@ public class SaerchActivity extends BaseActivity implements SearchViewInt, View.
     private ImageView searchButton, backgroundTransparent;
     private ImageButton nextButton, prevButton;
     private EditText searchQuery;
-    private TextView waiting;
+    private TextView waiting, noResult;
     private GridView searchResult;
     private int page=0, pages=0;
     private String saveQuery;
@@ -52,18 +52,25 @@ public class SaerchActivity extends BaseActivity implements SearchViewInt, View.
         nextButton.setOnClickListener(this);
         prevButton.setOnClickListener(this);
 
+        noResult =findViewById(R.id.noResult);
         waiting = findViewById(R.id.waiting);
         backgroundTransparent = findViewById(R.id.transparent_background);
         progressBar = findViewById(R.id.progressBar);
         progressBar.setVisibility(View.GONE);
-
         refreshButton(pages);
+        setNoResult();
+    }
+
+    @Override
+    public void setNoResult() {
+        noResult.setVisibility(View.VISIBLE);
     }
 
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.search_button:
+                noResult.setVisibility(View.GONE);
                 nextButton.setClickable(false);
                 prevButton.setClickable(false);
                 searchButton.setEnabled(false);
@@ -84,6 +91,7 @@ public class SaerchActivity extends BaseActivity implements SearchViewInt, View.
                 }
                 else {
                     page--;
+                    noResult.setVisibility(View.GONE);
                     searchQuery.setText(saveQuery);
                     nextButton.setClickable(false);
                     prevButton.setClickable(false);
@@ -101,6 +109,7 @@ public class SaerchActivity extends BaseActivity implements SearchViewInt, View.
             case R.id.fabNext:
                 if (page<=pages||page!=0){
                     page++;
+                    noResult.setVisibility(View.GONE);
                     searchQuery.setText(saveQuery);
                     nextButton.setClickable(false);
                     prevButton.setClickable(false);

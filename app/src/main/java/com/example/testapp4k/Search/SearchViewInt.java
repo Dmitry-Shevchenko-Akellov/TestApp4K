@@ -15,6 +15,8 @@ public interface SearchViewInt extends BaseView {
 
     void errorSearch(boolean error);
 
+    void setNoResult();
+
     void errorNull();
 
     void refreshButton(int pagesCount);
